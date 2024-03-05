@@ -572,45 +572,43 @@ export default class PaginationBoxView extends Component {
     const nextAriaDisabled = isNextDisabled ? 'true' : 'false';
 
     return (
-      <ul
-        className={className || containerClassName}
-        role="navigation"
-        aria-label="Pagination"
-      >
-        <li className={previousClasses}>
-          <a
-            className={previousLinkClasses}
-            href={this.getElementHref(selected - 1)}
-            tabIndex={isPreviousDisabled ? '-1' : '0'}
-            role="button"
-            onKeyPress={this.handlePreviousPage}
-            aria-disabled={previousAriaDisabled}
-            aria-label={previousAriaLabel}
-            rel={prevRel}
-            {...this.getEventListener(this.handlePreviousPage)}
-          >
-            {previousLabel}
-          </a>
-        </li>
+      <nav aria-label="pagination">
+        <ul className={className || containerClassName}>
+          <li className={previousClasses}>
+            <a
+              className={previousLinkClasses}
+              href={this.getElementHref(selected - 1)}
+              tabIndex={isPreviousDisabled ? '-1' : '0'}
+              role="button"
+              onKeyDown={this.handlePreviousPage}
+              aria-disabled={previousAriaDisabled}
+              aria-label={previousAriaLabel}
+              rel={prevRel}
+              {...this.getEventListener(this.handlePreviousPage)}
+            >
+              {previousLabel}
+            </a>
+          </li>
 
-        {this.pagination()}
+          {this.pagination()}
 
-        <li className={nextClasses}>
-          <a
-            className={nextLinkClasses}
-            href={this.getElementHref(selected + 1)}
-            tabIndex={isNextDisabled ? '-1' : '0'}
-            role="button"
-            onKeyPress={this.handleNextPage}
-            aria-disabled={nextAriaDisabled}
-            aria-label={nextAriaLabel}
-            rel={nextRel}
-            {...this.getEventListener(this.handleNextPage)}
-          >
-            {nextLabel}
-          </a>
-        </li>
-      </ul>
+          <li className={nextClasses}>
+            <a
+              className={nextLinkClasses}
+              href={this.getElementHref(selected + 1)}
+              tabIndex={isNextDisabled ? '-1' : '0'}
+              role="button"
+              onKeyDown={this.handleNextPage}
+              aria-disabled={nextAriaDisabled}
+              aria-label={nextAriaLabel}
+              rel={nextRel}
+              {...this.getEventListener(this.handleNextPage)}
+            >
+              {nextLabel}
+            </a>
+          </li>
+        </ul>
+      </nav>
     );
   }
 }
