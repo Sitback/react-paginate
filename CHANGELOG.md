@@ -1,3 +1,8 @@
+## >= 8.2.1
+
+- Removed role="navigation" from <ul>
+- Wrapped everything in a <nav> tag
+
 ## >= 9.0.0 (WIP)
 
 - Removed support for depecrated `extraAriaContext` (please use `ariaLabelBuilder` instead)
